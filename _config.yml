@@ -20,25 +20,25 @@ timezone: Europe/Amsterdam
 
 title: Logic, Probability & Information # the main title
 
-tagline: bubu kiki toto # it will display as the sub-title
+tagline: Course materials for an entry-level course # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  add description later
+  Introduction to set theory, propositional logic, predicate logic, probability theory & information theory
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://michael-franke.github.io"
 
 github:
-  username: github_username # change to your github username
+  username: michael-franke # change to your github username
 
 twitter:
-  username: twitter_username # change to your twitter username
+  username: meanwhileina # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Michael Franke
+  email: # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username # change to your twitter homepage
@@ -76,7 +76,7 @@ theme_mode: # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: https://pbs.twimg.com/profile_images/739374897449840640/wm6A9uqS_400x400.jpg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
