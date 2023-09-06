@@ -119,7 +119,7 @@ plugins:
 
 scholar:
   style: ieee
-  sort_by: author,year,title
+  # sort_by: author,year,title
 
 # ------------ The following options are not recommended to be modified ------------------
 
