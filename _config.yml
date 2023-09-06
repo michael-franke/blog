@@ -114,6 +114,13 @@ pwa:
 
 paginate: 10
 
+plugins:
+  - jekyll-scholar
+
+scholar:
+  style: ieee
+  sort_by: author,year,title
+
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:

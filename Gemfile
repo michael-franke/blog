@@ -26,3 +26,6 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 if RUBY_PLATFORM =~ /linux-musl/
   gem "jekyll-sass-converter", "~> 2.0"
 end
+
+# for academic references, see: https://github.com/inukshuk/jekyll-scholar
+gem 'jekyll-scholar', group: :jekyll_plugins
