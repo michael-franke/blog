@@ -1,15 +1,12 @@
 ---
-layout: post
 title: "Measuring model fit for categorical data with correlation scores? - Probably not such a good idea."
 date:   2017-02-27
-categories: statistics, modeling
-status: publish
-published: true
+math: true
+mermaid: true
+categories: [cognitive modeling, statistics]
+tags: [multi-nomial data, model comparison, correlation]
 ---
  
-
- 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
  
 ### Why this post?
  
@@ -61,10 +58,12 @@ The perfect model would predict exactly the observed frequencies. So, for the pe
 ### Correlation scores
  
 Let's put a number to the impression, because numbers convince by implicit gesture towards rigor. A number of papers have used **correlation scores** for this purpose. I will not point to any paper and certainly not to any person in particular, except for this one lost soul: myself! Yes, I have used correlation scores to suggest that a model is doing a good job. But the practice is far from ideal. To see this, let's first look at what correlation scores are.
+
+
+
+Let $${o}$$ be a vector of observations and $${p}$$ a vector of predictions, equally long and aligned with each other. **Pearsson's correlation coefficent** is then defined simply as the covariance between $${o}$$ and $${p}$$ divided by the product of their standard deviations:
  
-Let $$\vec{o}$$ be a vector of observations and $$\vec{p}$$ a vector of predictions, equally long and aligned with each other. **Pearsson's correlation coefficent** is then defined simply as the covariance between $$\vec{o}$$ and $$\vec{p}$$ divided by the product of their standard deviations:
- 
-$$r(\vec{o}, \vec{p}) = \frac{cov(\vec{o}, \vec{p})}{sd(\vec{o}) \ sd(\vec{p})} $$
+$$r({o}, {p}) = \frac{cov({o}, {p})}{sd({o}) \ sd({p})} $$
  
 The correlation coefficient in the simple case above is then:
  

@@ -1,26 +1,21 @@
 ---
 title: "Computing Bayes Factors"
 date:   2017-07-07
-categories: [Bayesian data analysis, cognitive modeling]
+categories: [cognitive modeling, Bayesian data analysis]
 math: true
 mermaid: true
 tags: [statistics, Bayesian data analysis, cognitive modeling, model comparison, Bayesian computation]
 ---
  
-
- 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
- 
-$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
-$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
- 
-
  
 The goal of this post is to review a number of methods that approximate Bayes factors or marginalized likelihoods. 
  
-### Model comparison by Bayes factors
+## Model comparison by Bayes factors
  
 A model $$M_i$$, in the Bayesian sense, is a pair consisting of a conditional likelihood function $$P(D \mid \theta, M_i)$$ for observable data $$D$$ together with a prior $$P(\theta \mid M_i)$$ over parameter vector $$\theta$$. Ideally, we might like to assess the absolute probability of model $$M_i$$ after seeing data $$D$$. We can express this quantity using Bayes rule:
+ 
+$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
+$$ \newcommand{\tuple}[1]{\langle#1\rangle} $$
  
 $$ P(M_i \mid D) = \frac{P(M_i) \ P(D \mid M_i)}{\int P(M_j) \ P(D \mid M_j) \  \text{d} M_j}\,.$$ 
  
@@ -34,7 +29,7 @@ The fraction on the left-hand side is the posterior odds ratio: our relative bel
  
 If the Bayes factor is close to 1, then data $$D$$ does little to change our relative beliefs. If the Bayes factor is large, say 100, then $$D$$ provides substantial evidence in favor of $$M_1$$. Likewise, if it is small, say 0.01, then $$D$$ is relative evidence in favor of $$M_2$$. 
  
-### Marginal likelihoods
+## Marginal likelihoods
  
 While Bayes factors are conceptually appealing, their computation can still be very complex. The quantity $$P(D \mid M_i)$$ is often called the **marginal likelihood**. (It is also sometimes called the _evidence_ but this usage of the term may be misleading because in natural language we usually refer to observational data as 'evidence'; rather the Bayes factor $$\frac{P(D \mid M_i)}{P(D \mid \neg M_i)}$$ is a plausible formalization of 'evidence' in favor of a model.) This term looks inoccuous but it is not. It can be a viciously complicated integral, because the likelihood of observation $$D$$ under the model $$M_i$$ must quantify over all possible parameters of that model, weighed as usual by their priors:
  
@@ -46,7 +41,7 @@ $$ P(\theta \mid D) = \frac{P(\theta) \ P(D \mid \theta)}{\int P(\theta') \ P(D 
  
 Normally, we would like to avoid having to calculate the marginal likelihood, which is exactly why MCMC methods are so great: they approximate the posterior distribution over parameters $$P(\theta \mid D)$$ _without_ knowledge or computation of the marginal likelihood. This makes clear why computing Bayes factors, in general, can be quite difficult or a substantial computational burden. 
  
-### Methods for Bayes factor computation
+## Methods for Bayes factor computation
  
 Two general approaches for computing or approximating Bayes factors can be distinguished. We can target the marginal likelihood of each model in separation. Or, we can target the Bayes factor directly. Both approaches have advantages and disadvantages, as we will see presently.
  
@@ -59,7 +54,7 @@ The following will spell out some methods for computing a Bayes factor. We apply
  
 Data and full scripts (only the most important parts of which are shown here) are available for [download](http://michael-franke.github.io/code/BF_computation.zip).
  
-### The running-example model(s): Generalized Context Model
+## The running-example model(s): Generalized Context Model
  
 Chapter 17 of Lee & Wagenmakers' ([2014](https://bayesmodels.com)) textbook on _Bayesian Cognitive Modeling_ features a concise implementation of the classic Generalized Context Model (GCM) of categorization. The model aims to predict the likelihood of correctly categorizing items after an initial learning period. Items differ along a number of numeric feature dimensions. (In the present case there will just be two categories and two feature dimensions.) The GCM revolves around three assumptions: (i) the probability of classifying item $$i$$ as belonging to category $$A$$ is derived from a measure of relative similarity of $$i$$ to all those items $$j$$ which were presented as belonging to category $$A$$ during training; (ii) similarity of any two items is a function of relative weighing of feature dimensions; (iii) there is room for general category preference (category $$A$$ is more likely to be chosen accross the board). (See chapter 17 of Lee & Wagenmakers and the papers cited therein for further details.)
  
@@ -91,7 +86,7 @@ A visualization of the model as a probabilistic dependency net is this (taken fr
  
 We are interested in comparing two models, both variants of the GCM. The first, more complex model is the one shown up here where weight has a flat prior over the unit interval `w ~ dbeta(1,1)`. The second, simpler model is essentially the same but fixes the value of weight `w = 0.5`. This means that these models are so-called _properly nested models_ and this, in turn, allows for computation of Bayes factors by the Savage-Dickey method.
  
-### Savage-Dickey density ratio
+## Savage-Dickey density ratio
  
 The Savage-Dickey density ratio method for calculating Bayes factors is particularly nice and elegant. An excellent tutorial on this method is [[Wagenmakers et. al (2010)]](http://www.ejwagenmakers.com/2010/WagenmakersEtAlCogPsy2010.pdf). 
  
@@ -122,7 +117,7 @@ $$
  
 The above is a direct consequence of this last line.
  
-#### Example: coin biases
+### Example: coin biases
  
 Let's illustrate the Savage-Dickey method with a simpler example for which we can also give an analytic solution for the Bayes factor. Suppose we observed `k=7` successes in `N=24` flips of a coin. The complex model $$M_1$$ has a likelihood function $$ P(k 
 \mid \theta, M_1) = \text{Binomial}(k \mid N, \theta)$$ and a prior $$ P(\theta) = \text{Beta}(\theta \mid 1,1) $$. The simpler (nested) model has the same likelihood function $$ P(k 
@@ -148,7 +143,7 @@ $$
  
 This derivation uses the fact that the beta distribution is a conjugate prior for the binomial likelihood function, so that we can easily compute the posterior of $$\theta$$ after seeing $$k=7$$ for $$N=24$$ analytically, just using the beta distribution again. In general, starting with a prior $$\theta \sim \text{Beta}(1,1)$$ the posterior over $$\theta$$ will be $$\theta \sim \text{Beta}(k+1, N-k+1)$$ after seeing $$k$$ successes out of $$N$$ flips.
  
-#### Savage-Dickey for the GCM example
+### Savage-Dickey for the GCM example
  
 Unlike for the previous simple coin-flip example, we do not know the precise mathematical form of the posterior over $$w$$ for the GCM. We can nonetheless use the Savage-Dickey method to approximate Bayes factors, by using an approximation of the posterior probability density for $$w=0.5$$ using samples from posterior distribution of $$M_1$$. Posterior samples are here obtained using [JAGS](http://mcmc-jags.sourceforge.net).
  
@@ -247,7 +242,7 @@ paste0("Approximate BF in favor of complex model (Savage-Dickey): ",
  
 In sum, the Savage-Dickey method is an elegant and practical method for computing (or approximating, if based on sampling) Bayes factors for properly nested models. It is particularly useful when the nested model fixes just a small number of parameters that are free in the nesting model. The method needs to go through two bottlenecks that can introduce imprecision in an estimate: first, we may have to rely on posterior samples; second, we may have to rely an numerical approximation of a point-density from the samples.
  
-### Naive Monte Carlo simulation
+## Naive Monte Carlo simulation
  
 While the Savage-Dickey method targets calculation of the Bayes factor directly, we can also target a single model's marginal likelihood, as described above. Under certain circumstances (see end of this section for a critical assessment), even naive Monte Carlo simulation can work well and is very easy to implement when we already have a way of generating posterior samples, e.g., using an implementation in JAGS or similar software.
  
@@ -369,7 +364,7 @@ ggplot(data.frame(i = seq(10000,nSamples, by = 200),
 <img src="/mfpics/2017-07-07-BF_computation.Rmd/naiveMCtemp-1.png" title="plot of chunk naiveMCtemp" alt="plot of chunk naiveMCtemp" style="display: block; margin: auto;" />
  
  
-### Transdimensional MCMC
+## Transdimensional MCMC
  
 A straightforward method for approximating posterior model odds is transdimensional MCMC. We consider the posterior over a binary model flag parameter $$m \in \{0,1\}$$ which helps represent our prior and posterior beliefs about which of models $$M_0$$ and $$M_1$$ is true. We look at a single encompassing model that contains both models that are to be compared. The likelihood function of the encompassing model is switched between that of $$M_0$$ or $$M_1$$ depending on the current value of $$m$$. A JAGS model that implements such an encompassing model is in the file `GCM_3_BF_transdimensional.txt` and reproduced here:
  
@@ -460,7 +455,7 @@ paste0("BF in favor of complex model (transcendental): ",
  
 This method of estimation can be imprecise, especially when one model is much better than another. The intuitive reason is that whenever the MCMC chain sets $$m=i$$, the parameters for model $$j$$ are free to meander wherever they like. This, in turn, makes it less likely that a proposal with $$m=j$$ is accepted. One possible solution to this is to use so-called pseudo-priors: set the priors for parameters of model $$j$$ to some function that resembles their posterior distribution when $$m=i$$, but use the actual priors when $$m=j$$.
  
-### Supermodels
+## Supermodels
  
 A method similar to the previous promises to get around this problem, at least when the models' marginal likelihoods are not too different. I will refer to this approach as 'supermodels' here, taking inspiration from [this tutorial paper](https://arxiv.org/abs/1609.02186). Instead of a model flag, which determines which model's likelihood function to use, we instead combine the model's likelihoods in a linear way. Concretely, given parameter vectors $$\theta_i$$ and $$\theta_j$$ for models $$M_i$$ and $$M_j$$ respectively, we look at a model which contains both $$M_i$$ and $$M_j$$ and which has as the likelihood function of the data:
  
@@ -600,6 +595,10 @@ paste0("BF in favor of complex model (supermodels): ",
 ## [1] "BF in favor of complex model (supermodels): 4.443"
 {% endhighlight %}
  
-### Summary
+## Summary
  
 The estimated Bayes factors all differed to a certain extent. The quality of the estimates could be enhanced by taking more samples in each case. Estimates that additionally depend on later approximate computations are generally less preferred. For example, we used logsplines to estimate the posterior density at a point based on MCMC samples for the Savage-Dickey method; we looked at the maximum likelihood estimate for intercept $$c$$ in the supermodels approach. My impression is that the most workable and scalable methods are those that approximate marginal likelihoods individually and do not require post-sampling approximations. Here, only naive MC sampling was covered. A great recent tutorial for more sophisticated methods can be found [here](https://arxiv.org/abs/1703.05984). In sum, although I like the supermodels approach best (conceptual elegance!),  currently my money is on bridge sampling whenever a model does not allow for a brute force method like grid approximation or naive MC sampling.
+
+## References
+
+{% bibliography --cited %}

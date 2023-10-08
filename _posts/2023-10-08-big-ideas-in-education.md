@@ -22,8 +22,12 @@ Learning about cognitive biases early on might also pay off.
 But the main big picture ideas that I would defend are useful *tout court* are foundational to a very general sense-making approach to the natural world.
 
 
-## Generative-process models
+# Generative-process models
+
+TBC
 
 
 # Complex-adaptive systems
+
+TBC
 

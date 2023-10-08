@@ -1,12 +1,11 @@
 ---
-layout: post
 title:  "First thoughts on adaptive optimality of basic-level categories"
 date:   2016-12-14
-categories: evolution
-status: publish
-published: true
+math: true
+mermaid: true
+categories: [cognitive modeling, evolution]
 ---
- 
+  
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
  
 When Jones owns a dog, we usually say that he owns a dog, not a poodle (even if true and known) and not a pet. "Dog" is the basic-level category. If someone says that Jones owns a pet, we might infer that it's not known or relevant what kind of pet. If that same someone says that Jones owns a dog, we are much less likely to infer that it's not known or relevant which kind of dog. And so on.

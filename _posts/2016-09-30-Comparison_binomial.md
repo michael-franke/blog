@@ -1,14 +1,12 @@
----		
-layout: post		
-title:  "Comparing null-hypothesis tests for binominal data"		
-date:   2016-09-30 14:48:32 +0100		
-categories: statistics		
-status: publish
-published: true
 ---
- 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
- 
+title:  "Comparing null-hypothesis tests for binominal data"		
+date:   2016-09-30 
+math: true
+mermaid: true
+categories: [cognitive modeling, Bayesian data analysis]
+tags: [hypothesis testing, statistical simulations, p-values]
+---
+
 I taught a [tutorial on Bayesian data analysis](http://michael-franke.github.io/KogWis2016_bda_tutorial/index.html) at [KogWis-2016](http://kogwis2016.spatial-cognition.de) today, which had a running example of a simple binomial coin flip scenario, by means of which I tried to highlight the conceptual differences between three ways of doing (something that may be called) "null-hypothesis testing":
  
 1. $$p$$-values (our good-old pals),
