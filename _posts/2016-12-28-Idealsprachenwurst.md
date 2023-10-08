@@ -1,13 +1,12 @@
----		
-layout: post		
-title:  "Philosophie der Idealen Sprache goes Wahlkrampf"		
-date:   2016-12-28 16:40:00 +0100		
-categories: commentary, politics, humor		
-status: publish
-published: true
 ---
- 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+title:  "Philosophie der Idealen Sprache goes Wahlkrampf"		
+date:   2016-12-28 
+categories: [commentary, politics, humor]
+mermaid: true
+math: true
+tags: [philosophy, pedantry, ranting]
+--- 
+
  
 Bundesagrarminister Christian Schmidt von der CSU geht der "veganen Wurst" an den Kragen. Fleischersatzprodukte mit Bezeichnungen wie etwa "Soya Schnitzel" oder "vegetarisches Döner" seien irreführend, finde der CSU Politiker. So berichten heute verschiedene Zeitungen nach einem Interview des Ministers in der Bildzeitung. Auf [tagesschau.de](https://www.tagesschau.de/inland/schmidt-schnitzel-101.html) liest man:
  
