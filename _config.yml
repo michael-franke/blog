@@ -18,12 +18,12 @@ timezone: Europe/Amsterdam
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Logic, Probability & Information # the main title
+title: meanwhile in a secret room  # the main title
 
-tagline: Course materials for an entry-level course # it will display as the sub-title
+tagline: "" # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Introduction to set theory, propositional logic, predicate logic, probability theory & information theory
+  science blog, statistics, cognitive modeling, linguistics, natural language processing
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://michael-franke.github.io"
