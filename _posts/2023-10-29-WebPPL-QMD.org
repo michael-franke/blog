@@ -1,3 +1,4 @@
+#+OPTIONS: ': nil
 
 #+begin_src yaml :exports results :results value html
   ---
@@ -13,18 +14,47 @@
 
 This post describes how to integrate executable WebPPL code boxes into HTML documents, generated with Quarto.
 
-** WebPPL? Quarto?
+** What's WebPPL?
 
 [[http://webppl.org/][WebPPL]] is a light-weight probabilistic programming language, which is [[http://dippl.org/][built on top of Javascript]].
 It is great for fast-prototyping or just trying out ideas about stochastic processes.
 You can just [[http://webppl.org/][run it in a browser]] and it even provides intelligent visualizations of many common data formats.
 
-Here is an example
+For example, the WebPPL code calculates the Bayesian solution for the [[https://www.problang.org/chapters/app-01-probability.html][3-card puzzle]]:
 
-XXXXXXXXX
+<pre class="webppl">
+// three cards; with blue or red on either side
+var cards = [["blue", "blue"],
+             ["blue", "red"],
+             ["red", "red"]]
+
+var model = function() {
+  var card  = uniformDraw(cards)
+  var color = uniformDraw(card)
+  condition(color == "blue")
+  return card.join("-")
+}
+
+viz(Infer({method: "enumerate",
+           model: model
+           }))
+</pre>
+
+<script>
+// find all <pre> elements and set up the editor on them
+var preEls = Array.prototype.slice.call(
+                  document.getElementsByClassName("webppl"));
+preEls.map(function(el) {
+    console.log(el);
+    editor.setup(el, {language: 'webppl'}); });
+</script>
+
 
 WebPPL, or tools like it, are extremely useful also for teaching: no installation requirements, no fuzz with visualization, direct hands-on exploration of stochastic processes and Bayesian inference.
 Consequently, several instructional web-books have used WebPPL for interactive illustrations and exercises, e.g., on [[https://probmods.org/][probabilistic models of cognition]], [[https://www.problang.org/][probabilistic language understanding]], or statistics (see [[https://mhtess.github.io/bdappl/][here]] or [[https://michael-franke.github.io/intro-data-analysis/index.html][here]]).
+
+** What's Quarto?
+
 
 [[https://quarto.org/][Quarto]] is a relatively new "open-source scientific and technical publishing system" [from the Quarto website] and may become a more general alternative to replace Jupyter notebooks or Rmarkdown.
 I've used [[https://michael-franke.github.io/npNLG/000-intro.html][Jupyter-notebook based webbooks]] and [[https://michael-franke.github.io/intro-data-analysis/index.html][Rmarkdown-based webbooks]] for educational material in my classes, and it worked fine.
@@ -32,7 +62,7 @@ But I also recently tried Quarto and found the ease, portability and overall con
 
 Since I will likely use Quarto in the future, and since others likely will, too; and since I would love to see more people use tools like WebPPL for education in stats and probabilistic modeling,  this post describes how to integrate executable WebPPL code boxes into HTML documents, generated with Quarto.
 
-*** Integrating WebPPL in Quarto documents
+** Integrating WebPPL in Quarto documents
 
 Here's what you need to do to get interactive WebPPL code boxes and outputs into your HTML-output from QMD files.
 
