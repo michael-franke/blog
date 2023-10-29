@@ -1,11 +1,10 @@
 ---
 title: "Testing webPPL in QMD"
-author: "Michael Franke"
-format: 
-  html:
-    css: "webppl-editor.css"
+author: "Ernie and Bert"
 include-before-body:
   text: |
+    <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/cdn.webppl.org/webppl-editor-1.0.9.css">
+    <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/cdn.webppl.org/webppl-viz-0.7.11.css">
     <script src="https://s3-us-west-2.amazonaws.com/cdn.webppl.org/webppl-editor-1.0.9.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/cdn.webppl.org/webppl-viz-0.7.11.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/cdn.webppl.org/webppl-v0.9.13.js" defer async></script>
@@ -13,10 +12,10 @@ include-before-body:
 
 # Set up
 
-Include the file `webppl-editor.jss` in the same directory.
-Use `include-before-body` in the yml-preamble of the QMD-document to include the JS files.
-
-At the end of the document include the functions (from IDA textbook) to scrpe and render the webPPL functionality.
+To include WebPPL in QMD files Do this:
+1. Use `include-before-body` (as done here) to include relevant CSS and JS files.
+2. Wrap WebPPL code in `<pre class="webppl"> ... </pre>`.
+3. Include the `script` snippet below at the end of the QMD document.
 
 
 # Example
@@ -36,18 +35,16 @@ var model = function() {
   return card.join("-")
 }
 
-viz(Infer({method: "enumerate", 
+viz(Infer({method: "enumerate",
            model: model
            }))
 </pre>
 
 <script>
 // find all <pre> elements and set up the editor on them
-var preEls = Array.prototype.slice.call(document.getElementsByClassName("webppl"));
-preEls.map(function(el) { console.log(el); editor.setup(el, {language: 'webppl'}); });
-</script> 
-
-# TODO
-
-- adjust size of text in webPPL code box
-- get rid of "download graph" stuff?
+var preEls = Array.prototype.slice.call(
+                  document.getElementsByClassName("webppl"));
+preEls.map(function(el) {
+    console.log(el);
+    editor.setup(el, {language: 'webppl'}); });
+</script>
