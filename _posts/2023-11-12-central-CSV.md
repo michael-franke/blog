@@ -1,6 +1,6 @@
 ---
 title: The "Central CSV" approach for planning data-rich projects
-date: 2023-10-29
+date: 2023-11-12
 math: true
 mermaid: true
 categories: [productivity]
