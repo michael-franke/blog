@@ -4,7 +4,7 @@ date: 2023-08-12
 math: true
 mermaid: true
 categories: [NLP]
-tags: [information-theory terminology, LLMs, pedantry, ranting]
+tags: [information-theory, terminology, LLMs, pedantry, ranting]
 ---
 
 When testing the performance of Large Language Models (LLMs), a popular scoring function for multiple-choice options is referred to as "pointwise mutual information scoring" ("PMI scoring") (e.g., {% cite HoltzmanWest2021:Surface-Form-Co %} {% cite BosselutBras2021:Dynamic-Neuro-S %} {% cite LiKuncoro2022:A-Systematic-In %}).

@@ -7,7 +7,7 @@ categories: [NLP]
 tags: [LLMs, philosophy]
 ---
 
-Put on your philosopher&rsquo;s 50%-funny-hat and prepare for a wild goose chase from inverse reinforcement learning, evolutionary explanations, the language modeling objective, and Wittgenstein to the final conclusion that ChatGPT does not speak English because it cannot shut up.
+Put on your philosopher&rsquo;s funny-hat and prepare for a wild goose chase from inverse reinforcement learning, via evolutionary explanations, the language modeling objective, and Wittgenstein&rsquo;s late philosophy to the final conclusion that ChatGPT does not speak English because it cannot shut up.
 Don&rsquo;t worry, it will all make sense, or won&rsquo;t it?
 
 ![img](/mfpics/LW-playing.png)
@@ -17,7 +17,7 @@ Don&rsquo;t worry, it will all make sense, or won&rsquo;t it?
 
 In standard reinforcement learning, modellers fix a reward function and have the system evolve behavior that optimizes the (expected rewards).
 Inverse reinforcement learning, in contrast, supplies examples of behavior and has the system infer a reward function that, if behavior is optimized under it, would match the observed.
-This is superficially similar to evolutionary explanations of human behavior, or Anderson&rsquo;s [rational analysis](https://en.wikipedia.org/wiki/Rational_analysis#:~:text=Rational%20analysis%20is%20a%20theoretical,the%20structure%20of%20the%20mind.) approach in Cognitive Science.
+This is superficially similar to evolutionary explanations of human behavior, or Anderson&rsquo;s [rational analysis](https://en.wikipedia.org/wiki/Rational_analysis#:~:text=Rational%20analysis%20is%20a%20theoretical,the%20structure%20of%20the%20mind.) approach in Cognitive Science, where we also seek to explain behavior in terms of a purpose it serves.
 In linguistics, [functional explanations](https://plato.stanford.edu/entries/linguistics/) seek to show how particular features of language are adaptations for a particular goal, such as to [maximize discriminability](https://philpapers.org/rec/DEBTOO-3) (e.g., in the vowel space), or to [efficiently communicate about a specific semantic domain](https://www.pnas.org/doi/full/10.1073/pnas.0610341104).
 The centerpiece of such explanations are, essentially, postulated reward functions that human behavior has evolved to optimize.
 Whence the parallel to inverses RL, only that in inverse RL the agent tries to find the reward function, whereas in optimality-based explanations the researchers come up with it.
@@ -36,9 +36,16 @@ The same.
 Over and over again.
 
 So, totally silly question, or maybe a bit insightful after all?
-I&rsquo;d say we can glimpse from this why we intuit that [LLMs are &ldquo;stochastic parrots&rdquo;](https://dl.acm.org/doi/pdf/10.1145/3442188.3445922) and that [LLMs have mastered formal competence, but seem to lack functional competence](https://arxiv.org/abs/2301.06627).
+I&rsquo;d say we can glimpse from this why we intuit that [LLMs are &ldquo;stochastic parrots&rdquo;](https://dl.acm.org/doi/pdf/10.1145/3442188.3445922) and that [LLMs may have mastered formal competence, but seem to lack functional competence](https://arxiv.org/abs/2301.06627).
 The language modeling objective provides no incentive to use language to achieve any goals.
-LM-modeling agents do not share information, make promises and don&rsquo;t greet one another even if they say &ldquo;hi!&rdquo;
+LM-modeling agents do not share information, make promises and don&rsquo;t greet one another even if they produce that string &ldquo;hi!&rdquo;
+
+Would anything change if we also consider fine-tuning a foundation LLM with subsequent reinforcement learning, which modulates the output to be more helpful (and less toxic, &#x2026;)?
+Yes, but only a bit.
+Silence would not be the optimal solution in a society of agents optimizing this conjoined objective anymore.
+But **there is much more to human language use than being a helpful assistant**.
+The richness and diversity of human purposes behind our flapping lips, hands, pens and keystrokes is not even approximately met.
+(There are many language games, of which being a helpful assistant is just one, in our human forms of life; see below.)
 
 
 # Language games and forms of life
@@ -57,7 +64,7 @@ In his *Philosophical Investigations* §23 we read:
 > The phrase &ldquo;language game&rdquo; is here supposed to highlight that speaking a language is part of a practice, or a form of life.
 
 
-# ChatGPT doesn&rsquo;t speak English because it does not not speak
+# ChatGPT doesn&rsquo;t speak English because it does not *not* speak
 
 According to this view, we cannot disassociate speaking or knowing a language from engaging in the practices that render this language meaningful.
 If we adopt this wide sense of &ldquo;speaking English&rdquo;, then we should require sufficient comfort with different language games.
@@ -68,18 +75,18 @@ For better or worse.
 But how do we know that the SOTA LLMs cannot do any of this?
 They are probably able to produce fluent language suggesting that they reason about social commitments and relationships.
 And any kind of non-linguistic action we would require the LLM to show as part of a language game is, well, simply unfair.
-That ChatGPT cannot clap its hands when I ask it to is not something that we should hold against it.
+That ChatGPT cannot give me five apples with unicorn stickers when I want it to play shop-keeper and customer, is not something that we should hold against it.
 
 This leaves us in a conundrum.
-We claim that LLMs are lacking something, the ability to engage adequately in language-based interaction, but they are probably able to produce language about these practices and we cannot require them to take worldly actions to follow up on their promises.
+We claim that LLMs are lacking something, the ability to engage adequately in language-based interaction, but they are probably able to produce language *about* these practices and we cannot require them to take worldly actions to follow up on their promises.
 
 But maybe there is a way.
-To come back to early Wittgenstein, maybe we need to seek the edge-cases of the effable, the border between the linguistic and the non-linguistic act.
+To go back to early Wittgenstein, in particular the idea in the Tractatus that the limits of thought and language show in the edge cases of meaningfulness (tautologies and contradictories, *showing* but not *expressing* the logical structure or representations), maybe we need to seek the edge-cases of the effable, the border between the linguistic and the non-linguistic act, in order to show that LLMs fail to properly act non-linguistically where, in principle, they could have.
 This borderline action, clearly, is saying nothing.
 It&rsquo;s linguistic and it&rsquo;s not.
 Obviously.
 
-So, the ultimate test is whether an LLM can do that in the appropriate moment in a simple language game, such as a request.
+So, the ultimate test is whether an LLM can play this move &ldquo;silence&rdquo; at the appropriate moment in a simple language game, such as a request, which should be totally compatible with its role as helpful assistant.
 But, unfortunately:
 
 ![img](/mfpics/ChatGPT-STFU.png)
