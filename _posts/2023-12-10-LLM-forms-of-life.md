@@ -15,7 +15,7 @@ Don&rsquo;t worry, it will all make sense, or won&rsquo;t it?
 
 # Reinforcement learning, inverse RL, and optimality-based explanations
 
-In standard reinforcement learning, modellers fix a reward function and have the system evolve behavior that optimizes the (expected rewards).
+In standard reinforcement learning, modellers fix a reward function and have the system evolve behavior that optimizes the expected rewards.
 Inverse reinforcement learning, in contrast, supplies examples of behavior and has the system infer a reward function that, if behavior is optimized under it, would match the observed.
 This is superficially similar to evolutionary explanations of human behavior, or Anderson&rsquo;s [rational analysis](https://en.wikipedia.org/wiki/Rational_analysis#:~:text=Rational%20analysis%20is%20a%20theoretical,the%20structure%20of%20the%20mind.) approach in Cognitive Science, where we also seek to explain behavior in terms of a purpose it serves.
 In linguistics, [functional explanations](https://plato.stanford.edu/entries/linguistics/) seek to show how particular features of language are adaptations for a particular goal, such as to [maximize discriminability](https://philpapers.org/rec/DEBTOO-3) (e.g., in the vowel space), or to [efficiently communicate about a specific semantic domain](https://www.pnas.org/doi/full/10.1073/pnas.0610341104).
@@ -38,7 +38,7 @@ Over and over again.
 So, totally silly question, or maybe a bit insightful after all?
 I&rsquo;d say we can glimpse from this why we intuit that [LLMs are &ldquo;stochastic parrots&rdquo;](https://dl.acm.org/doi/pdf/10.1145/3442188.3445922) and that [LLMs may have mastered formal competence, but seem to lack functional competence](https://arxiv.org/abs/2301.06627).
 The language modeling objective provides no incentive to use language to achieve any goals.
-LM-modeling agents do not share information, make promises and don&rsquo;t greet one another even if they produce that string &ldquo;hi!&rdquo;
+LM-modeling agents do not share information, make promises and don&rsquo;t greet one another even if they produce the string &ldquo;hi!&rdquo;
 
 Would anything change if we also consider fine-tuning a foundation LLM with subsequent reinforcement learning, which modulates the output to be more helpful (and less toxic, &#x2026;)?
 Yes, but only a bit.
@@ -67,9 +67,9 @@ In his *Philosophical Investigations* §23 we read:
 # ChatGPT doesn&rsquo;t speak English because it does not *not* speak
 
 According to this view, we cannot disassociate speaking or knowing a language from engaging in the practices that render this language meaningful.
-If we adopt this wide sense of &ldquo;speaking English&rdquo;, then we should require sufficient comfort with different language games.
+If we adopt this wide sense of &ldquo;speaking English&rdquo;, then we should require of a system that &ldquo;speaks English&rdquo; to show sufficient comfort with different language games.
 Here the **lack of functional grounding in LLM productions** matters: it is hard to see whether LLMs like ChatGPT can engage in any kind of language game that involves making social commitments or establishing social relationships.
-It cannot by design.
+LLMs probably cannot by their very design.
 For better or worse.
 
 But how do we know that the SOTA LLMs cannot do any of this?
@@ -86,7 +86,8 @@ This borderline action, clearly, is saying nothing.
 It&rsquo;s linguistic and it&rsquo;s not.
 Obviously.
 
-So, the ultimate test is whether an LLM can play this move &ldquo;silence&rdquo; at the appropriate moment in a simple language game, such as a request, which should be totally compatible with its role as helpful assistant.
+So, the ultimate test is whether an LLM can play the &ldquo;silence&rdquo; card at the appropriate moment in the language game.
+If formulated as a request it should be totally compatible with its role as helpful assistant.
 But, unfortunately:
 
 ![img](/mfpics/ChatGPT-STFU.png)
