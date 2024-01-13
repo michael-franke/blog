@@ -29,3 +29,6 @@ end
 
 # for academic references, see: https://github.com/inukshuk/jekyll-scholar
 gem 'jekyll-scholar', group: :jekyll_plugins
+
+# try bug-fixing issue to google-protobuf
+gem 'google-protobuf', '3.25.1'
