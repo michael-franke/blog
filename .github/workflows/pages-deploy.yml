@@ -49,6 +49,7 @@ jobs:
         run: |
           bundle install
           bundle add sass-embedded -v "~> 1.62.1"
+          bundle add html-proofer -v "~> 3.19.4"
           
       # Added this step to install rake manually
       - name: Install Rake
@@ -61,7 +62,8 @@ jobs:
           
       - name: Test site
         run: |
-          bundle exec htmlproofer *site --disable-external --check-html --allow*hash_href
+          bundle exec jekyll doctor
+          bundle exec htmlproofer "_site" --disable-external --check-html --allow-hash-href
           
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
