@@ -1,0 +1,32 @@
+#+OPTIONS: ': nil
+
+#+begin_src yaml :exports results :results value html
+  ---
+  title: "Pragmatic framing accross the Germanic languages"
+  date: 2025-02-27
+  math: true
+  mermaid: true
+  categories: [pragmatics]
+  tags: [pragmatics, fun]
+  ---
+
+#+end_src
+
+Since February 2025 the German Railway Service (Deutsche Bahn, DB) no longer has any restaurant services in long-running intercity trains, such as from Amsterdam to Berlin (a trip of about 6 hours).
+That may be quite inconvenient if you didn't know about that change and did not bring enough food and water.
+
+The conductor on my journey shared this sentiment and made it quite clear to all passengers on the train.
+Shortly after departing in Amsterdam, the conductor announced in three different languages that there would be no restaurant service on this journey.
+He even encouraged passengers to use the feedback option on the DB website if they are unhappy with this change in policy.
+
+So, why bother? Because the way the identical facts were expressed in three different languages was extremely interesting.
+We heard three different formulations of who made the decision to drop the restaurant services.
+This is what he said:
+
+*German*: "die Deutsche Bahn" (Engl: the German Railway Service)
+
+*English*: "our German colleagues"
+
+*Dutch*: "de duitsers" (Engl: the Germans)
+
+Oh how much opinion, how much world view can be communicated by the choice of a noun phrase!
