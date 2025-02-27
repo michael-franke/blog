@@ -36,18 +36,33 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2.2   # Updated to a newer Ruby version
-          bundler-cache: true
-    
+          bundler-cache: false  # Changed to false to handle dependencies manually
+      
+      # Fix platform-specific dependencies
+      - name: Update Bundle config
+        run: |
+          bundle config --local build.sassc --disable-march-tune-native
+          bundle config set --local without 'development test'
+      
+      # Install dependencies with specific sass-embedded version
+      - name: Install dependencies
+        run: |
+          bundle install
+          bundle add sass-embedded -v "~> 1.62.1"
+          
       # Added this step to install rake manually
       - name: Install Rake
         run: gem install rake
+        
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
+          
       - name: Test site
         run: |
           bundle exec htmlproofer *site --disable-external --check-html --allow*hash_href
+          
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
